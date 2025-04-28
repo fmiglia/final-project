@@ -1,0 +1,3 @@
+[submodule "antiquepox/frontend"]
+	path = antiquepox/frontend
+	url = https://github.com/fmiglia/antiquepox-frontend.git
