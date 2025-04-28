@@ -11,6 +11,13 @@ import stripeRouter from './routes/stripeRoutes.js';
 import messageRouter from './routes/messageRoutes.js';
 import cors from 'cors';
 
+// Log per verificare le variabili d'ambiente
+console.log('Configurazione Stripe:', {
+  STRIPE_PUBLISHABLE_KEY: config.STRIPE_PUBLISHABLE_KEY ? 'Presente' : 'Mancante',
+  STRIPE_SECRET_KEY: config.STRIPE_SECRET_KEY ? 'Presente' : 'Mancante',
+  MONGODB_URL: config.MONGODB_URL ? 'Presente' : 'Mancante'
+});
+
 mongoose
   .connect(process.env.MONGODB_URI)
   .then(() => {

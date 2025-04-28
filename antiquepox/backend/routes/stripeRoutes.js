@@ -28,16 +28,17 @@ const stripeRouter = express.Router();
 // Route to retrieve the client secret for a payment intent
 stripeRouter.get('/secret/:id', isAuth, async (req, res) => {
   try {
+    console.log('=== INIZIO PROCESSO DI PAGAMENTO ===');
     console.log('Richiesta ricevuta per l\'ordine:', req.params.id);
-    console.log('Utente autenticato:', req.user);
-    console.log('Configurazione Stripe attuale:', {
-      hasSecretKey: !!config.STRIPE_SECRET_KEY,
-      secretKeyLength: config.STRIPE_SECRET_KEY?.length
+    console.log('Utente autenticato:', {
+      id: req.user._id,
+      name: req.user.name,
+      email: req.user.email
     });
 
     // Verifica che l'ID dell'ordine sia valido
     if (!req.params.id || req.params.id.length !== 24) {
-      console.log('ID ordine non valido:', req.params.id);
+      console.log('ERRORE: ID ordine non valido:', req.params.id);
       return res.status(400).send({ error: 'ID ordine non valido' });
     }
 
@@ -47,7 +48,14 @@ stripeRouter.get('/secret/:id', isAuth, async (req, res) => {
       '_id name email'
     );
 
-    console.log('Ordine trovato:', order ? 'Sì' : 'No');
+    console.log('Ordine trovato:', order ? {
+      id: order._id,
+      user: order.user._id,
+      totalPrice: order.totalPrice,
+      isPaid: order.isPaid,
+      items: order.orderItems.length
+    } : 'No');
+
     if (order) {
       console.log('Dettagli ordine:', {
         id: order._id,
@@ -120,10 +128,15 @@ stripeRouter.get('/secret/:id', isAuth, async (req, res) => {
       }, 
       client_secret: paymentIntent.client_secret 
     });
+
+    console.log('=== FINE PROCESSO DI PAGAMENTO ===');
   } catch (err) {
-    console.error('Errore durante la creazione del PaymentIntent:', err);
+    console.error('=== ERRORE DURANTE IL PAGAMENTO ===');
+    console.error('Tipo di errore:', err.name);
+    console.error('Messaggio di errore:', err.message);
     console.error('Stack trace:', err.stack);
-    // Handle errors and send 500 status with a detailed error message
+    console.error('=== FINE ERRORE ===');
+    
     res.status(500).send({ 
       error: 'Failed to retrieve client secret',
       details: err.message,

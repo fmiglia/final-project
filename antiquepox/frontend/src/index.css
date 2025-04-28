@@ -1,0 +1,660 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* CSS Variables */
+:root {
+  --primary: #ffffff;
+  --bold: #0097b2;
+  --dark: #353b40;
+  --medium: #9a9da0;
+  --light: #ebeded;
+  --facebook: #4968ad;
+  --youtube: #eb3223;
+  --button: #4968ad;
+}
+
+main {
+  flex: 1;
+  min-height: 100vh;
+  background-color: var(--light);
+}
+
+.content {
+  padding-left: 5%;
+  padding-right: 5%;
+}
+
+.box {
+  background: #fff;
+  margin: 0 0 30px;
+  border: solid 1px var(--light);
+  padding: 30px;
+  -webkit-box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+}
+
+body {
+  font-size: 20px; /* Adjust the base font size for the entire body */
+}
+h1 {
+  font-size: 24px; /* Adjust the font size for h1 tags */
+}
+h2 {
+  font-size: 20px; /* Adjust the font size for h2 tags */
+}
+p,
+.content,
+.about,
+.search h3,
+.jumbotron1 {
+  font-size: 20px; /* Adjust the font size for paragraphs and specific elements */
+}
+
+.bg-info {
+  color: var(--medium);
+  background-color: var(--dark) !important;
+}
+
+/*************** jumbotron image - Home.js ******************/
+.jumbotron1 {
+  background-image: url('./images/antiques.png');
+  background-repeat: no-repeat;
+  object-fit: cover;
+  background-size: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 4em 4em;
+  color: var(--light);
+  text-align: center;
+  font-size: 3.5rem;
+  font-weight: thin;
+  text-shadow: 2px 2px 4px var(--bold);
+}
+
+/* *********************** Header ************************ */
+.header {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  background: var(--bold);
+  padding-left: 5%;
+  padding-right: 5%;
+}
+/* logo */
+.navbar-brand > img {
+  height: 200px;
+  width: 200px;
+  margin-top: -2rem;
+  margin-bottom: -2rem;
+}
+/* Dropdown */
+.dropdown {
+  display: block;
+  position: relative;
+}
+
+.bottom-header {
+  text-decoration: none;
+  width: 100%;
+  font-size: 1rem;
+  padding: 1rem;
+  background: black;
+  color: var(--primary);
+  text-align: center;
+  justify-content: space-around;
+}
+.nav-categories {
+  display: none;
+}
+
+/********************** Product page *********************/
+/* Product card */
+.card {
+  min-width: 14rem;
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  padding: 1rem;
+  max-height: 100%;
+}
+.card-img-top:hover {
+  border-radius: 0% !important;
+  text-decoration: none;
+  box-shadow: 0 4px 20px 2px var(--bold);
+  transform: scale(1.1); /* hover scale effect */
+}
+.card-img-top {
+  max-height: 500px;
+  object-fit: cover;
+  width: 100%;
+}
+.card-title {
+  text-decoration: none;
+  color: var(--dark);
+}
+
+/* image zoom - product screen */
+.container1 {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+.img-large {
+  width: 500px;
+  object-fit: contain;
+  position: relative; /* brings main image forward */
+  z-index: 2;
+}
+.img-thumbnail {
+  height: 80px;
+  width: 80px;
+}
+.thumbnail {
+  display: flex;
+  flex-direction: row;
+  width: 80px;
+  height: 120px;
+  row-gap: 20px;
+}
+.thumbnail:hover {
+  border-radius: 0% !important;
+  text-decoration: none;
+  box-shadow: 0 4px 20px 2px var(--bold);
+  transform: scale(1.1); /* hover scale effect */
+}
+
+/* paypal and stripe logo */
+.payment-option {
+  display: flex;
+  align-items: center;
+}
+.payment-option .fab {
+  margin-left: 10px; /* Adjust the margin as needed */
+  font-size: 30px; /* Adjust the font size as desired */
+}
+
+.products {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+.product {
+  border: 1px #353b40 solid;
+  margin: 0.5rem;
+  background: var(--primary);
+  width: calc(25% - 1rem);
+  min-width: 250px;
+}
+.product img {
+  width: 100%;
+  max-width: 400px;
+}
+.product-info {
+  padding: 1rem;
+}
+
+.productEmail {
+  color: var(--dark);
+  text-decoration: none;
+}
+
+.lens {
+  height: 125px;
+  width: 125px;
+  border: 2px var(--dark);
+}
+
+.noWrap {
+  white-space: nowrap;
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+/* ProductMagScreen thumbnails left column */
+.left {
+  display: flex;
+  height: 50vh;
+}
+.left_1 {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.img_wrap {
+  width: 80px;
+  height: 80px;
+  border: 1px solid #eee;
+  cursor: pointer;
+}
+.img_wrap img {
+  width: 70px;
+  height: 70px;
+  object-fit: contain;
+}
+.left_2 img {
+  width: 500px;
+  height: 100%;
+  object-fit: contain;
+}
+.text {
+  text-align: center;
+  padding-top: 20px;
+}
+.active1 {
+  border: 2px solid #0097b2;
+}
+
+/********************* Checkout *******************/
+.btn-primary,
+.btn-outline-primary {
+  background-color: var(--button);
+  color: var(--primary);
+}
+
+.checkout-steps > div {
+  border-bottom: 0.2rem solid #a0a0a0;
+  color: #a0a0a0;
+}
+.checkout-steps > div.active {
+  border-bottom: 0.2rem solid var(--youtube);
+  color: #353b40;
+}
+
+/****************** Pagination ***************/
+.pagination a {
+  padding: 1rem;
+  margin: 0.5rem;
+  border-radius: 0.5rem;
+  border: 0.1rem #a4a4a4 solid;
+  font-size: 1.6rem;
+  font-family: Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+.pagination a.active {
+  font-weight: bold;
+}
+
+.rating span {
+  color: var(--facebook);
+}
+
+.img-large {
+  max-width: 100%;
+}
+.img-thumbnail {
+  height: 80px;
+}
+
+.small-container {
+  max-width: 600px;
+}
+
+/************** Sidebar optional *************/
+.navbar-brand {
+  font-weight: bold;
+}
+.side-navbar {
+  width: 240px;
+  height: 100%;
+  position: absolute;
+  left: -300px;
+  background-color: #100901;
+  transition: 0.5s;
+}
+
+.site-container {
+  transition: 0.4s;
+}
+.active-cont {
+  margin-left: 240px;
+}
+.active-nav {
+  left: 0;
+}
+.text-bold {
+  font-weight: bold;
+}
+
+/* *********************** Footer ************************ */
+footer {
+  text-decoration: none !important;
+  font-size: 1rem;
+  padding: 1rem;
+  margin-top: 1rem;
+  background: var(--bold);
+  color: #ffffff;
+  text-align: center;
+}
+
+/* footer social icons */
+a.socialIcon {
+  margin: 0 1rem;
+}
+.socialIcon a:hover {
+  color: var(--dark);
+}
+.socialIcon {
+  margin: 0 1rem;
+  transition: transform 250ms;
+}
+a.facebookIcon {
+  color: var(--primary);
+  text-decoration: none !important;
+}
+a.instagramIcon {
+  color: var(--primary);
+  text-decoration: none !important;
+}
+a.youtubeIcon {
+  color: var(--primary);
+  text-decoration: none !important;
+}
+a.email {
+  color: var(--primary);
+  text-decoration: none !important;
+}
+
+/****** product sidebar ******/
+.sidebar {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 300px;
+  height: 100%;
+  background-color: var(--medium);
+  transition: 1s;
+  z-index: 9999;
+}
+
+.sidebar header,
+.sidebar footer {
+  display: none;
+}
+
+.sidebar .container {
+  height: 100%;
+  max-width: initial;
+  margin: 0;
+  padding: 0;
+}
+
+.send-reply-button {
+  margin-right: 20px; /* Adjust the value to increase/decrease the gap */
+}
+
+/* if a X button is added to sidebar */
+.close-btn {
+  position: absolute;
+  color: #000;
+  background-color: var(--medium);
+  border: none;
+  top: 20px;
+  right: 20px;
+  width: 50px;
+  height: 50px;
+  font-size: 20px;
+  line-height: 40px;
+  text-align: center;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform 0.5s;
+}
+
+.sidebar-open .close-btn {
+  transform: rotate(45deg);
+}
+
+.bar {
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  background-color: #333;
+  transition: transform 0.3s ease;
+}
+
+.bar:first-child {
+  top: 0;
+  transform-origin: top left;
+}
+
+.bar:last-child {
+  bottom: 0;
+  transform-origin: bottom left;
+}
+
+.sidebar-open .bar:first-child {
+  transform: rotate(45deg);
+}
+
+.sidebar-open .bar:last-child {
+  transform: rotate(-45deg);
+}
+/* end sidebar */
+
+.hrLine {
+  border-color: var(--primary);
+}
+
+/***************** Bottom Footer ***************/
+
+.bottom-footer {
+  text-decoration: none;
+  width: 100%;
+  font-size: 1rem;
+  padding: 1rem;
+  background: black;
+  color: #ffffff;
+  text-align: center;
+}
+/* gabewd in BottomFooter link color */
+#linked {
+  color: var(--medium);
+  text-decoration: none;
+}
+
+/* ************************************************************* */
+/* media queries */
+/* ************************************************************* */
+
+@media screen and (max-width: 767px) {
+  .content {
+    padding-left: auto;
+    padding-right: auto;
+  }
+
+  .about {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    font-size: 1.5rem;
+  }
+
+  body {
+    font-size: 12px; /* Adjust the base font size for the entire body */
+  }
+  h1 {
+    font-size: 20px; /* Adjust the font size for h1 tags */
+  }
+  h2 {
+    font-size: 18px; /* Adjust the font size for h2 tags */
+  }
+  h3 {
+    font-size: 16px; /* Adjust the font size for h3 tags */
+  }
+  p,
+  .content,
+  .about,
+  .search h3,
+  .jumbotron1 {
+    font-size: 14px; /* Adjust the font size for paragraphs and specific elements */
+  }
+
+  /* *********************** Header ************************ */
+
+  /* logo */
+  .navbar-brand > img {
+    height: 70px;
+    width: 70px;
+    margin-top: -2rem;
+    margin-bottom: 1-rem;
+    margin-left: -10%; /* moves the logo to the left */
+  }
+
+  .nav-categories {
+    display: flex;
+  }
+  .search {
+    font-size: smaller;
+  }
+  .search h3 {
+    font-size: 12px;
+  }
+  .d-flex.me-auto {
+    padding-top: 20px; /* padding under logo  */
+  }
+
+  /* Removes category header and uses hamburger */
+  .bottom-header {
+    display: none;
+  }
+
+  /********************** jumbotron image *******************/
+  .jumbotron1 {
+    background-image: url('./images/antiques.png');
+    background-repeat: no-repeat;
+    object-fit: cover;
+    background-size: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 4em 5em;
+    color: var(--primary);
+    text-align: center;
+    font-size: 0.9rem;
+  }
+
+  /* *************** Product images ***************** */
+  .box {
+    background: #fff;
+    margin: 0 0 10px;
+    border: solid 1px #e6e6e6;
+    padding: 5px;
+    -webkit-box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+    font-size: xx-small;
+    height: auto;
+  }
+
+  .card {
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+    text-decoration: none;
+    max-width: 28rem;
+    max-height: 300px;
+  }
+  .card-title {
+    color: var(--dark);
+    text-decoration: none;
+    font-size: 10px;
+    max-height: 230px;
+  }
+  .card-img-top {
+    overflow: hidden;
+    min-height: 200px;
+    max-height: 200px;
+    min-width: 110px;
+    max-width: 120px;
+  }
+  .card-body {
+    max-height: 220px;
+  }
+
+  .flex-column {
+    width: 100%;
+  }
+
+  /************* Product page ************/
+
+  .rating span {
+    margin: 0.1rem;
+    font-size: 6px;
+  }
+
+  .img-large {
+    max-width: 325px;
+  }
+  .thumbnail {
+    height: 65px;
+    width: 45px;
+    margin-bottom: 20px;
+    margin-left: 5px;
+  }
+
+  .mt-3 {
+    padding: 15px;
+  }
+
+  .mx-1 {
+    font-size: xx-small;
+    padding: 10px;
+  }
+
+  .products {
+    margin: 0.5rem;
+  }
+
+  .align-items-center {
+    font-size: xx-small;
+  }
+
+  .btn-primary {
+    font-size: xx-small;
+  }
+}
+
+/* Stili per il form di modifica dei prodotti */
+.list-group {
+  max-width: 100%;
+  width: 100%;
+}
+
+.list-group-item {
+  word-break: break-word;
+  white-space: normal;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.list-group-item span {
+  flex: 1;
+  min-width: 0;
+  margin-right: 0.5rem;
+}
+
+@media screen and (max-width: 767px) {
+  .list-group-item {
+    flex-direction: row;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  
+  .list-group-item span {
+    margin-right: 0.5rem;
+  }
+}
