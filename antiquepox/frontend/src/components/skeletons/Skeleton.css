@@ -143,6 +143,27 @@
     max-width: 28rem;
     max-height: 300px;
   }
+  
+  /* Stili specifici per SkeletonOrderHistory su mobile */
+  .box .right-col {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+  
+  .box .right-col .skeleton-title {
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  
+  .box .right-col .skeleton-text {
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  
   .card-body {
     max-height: 220px;
   }

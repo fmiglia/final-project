@@ -112,7 +112,18 @@ export default function OrderHistory() {
                           alt={item.name}
                           className='img-fluid rounded img-thumbnail'
                         />
-                        <Link to={`/product/${item.slug}`}>{item.name}</Link>
+                        <Link 
+                          to={`/product/${item.slug}`}
+                          style={{
+                            display: 'block',
+                            maxWidth: '100%',
+                            overflow: 'hidden',
+                            textOverflow: 'ellipsis',
+                            whiteSpace: 'nowrap'
+                          }}
+                        >
+                          {item.name}
+                        </Link>
                       </div>
                     ))}
                   </td>

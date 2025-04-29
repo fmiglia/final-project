@@ -11,7 +11,7 @@ import { getError } from '../utils';
 import { toast } from 'react-toastify';
 import { loadStripe } from '@stripe/stripe-js/pure';
 import StripeCheckout from '../components/StripeCheckout';
-import SkeletonOrderDetails from '../components/skeletons/SkeletonOrderDetails'; //lesson 12
+import SkeletonOrderDetails from '../components/skeletons/SkeletonOrderDetails';
 
 function reducer(state, action) {
   switch (action.type) {
@@ -251,7 +251,7 @@ export default function OrderDetails() {
     <div className='content'>
       <br />
       <Helmet>
-        <title>{order.paymentMethod}</title> {/* displays PayPal or Stripe  */}
+        <title>{order.paymentMethod}</title>
       </Helmet>
       <h4 className='box'>
         {order.paymentMethod} Order: {orderId}

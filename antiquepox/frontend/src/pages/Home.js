@@ -8,9 +8,9 @@ import { Helmet } from 'react-helmet-async';
 import { Row, Col } from 'react-bootstrap';
 import MessageBox from '../components/MessageBox';
 import ProductCard from '../components/ProductCard';
-import Sidebar from '../components/Sidebar'; // lesson 12
-import { useMediaQuery } from 'react-responsive'; // lesson 12
-import SkeletonHome from '../components/skeletons/SkeletonHome'; // lesson 12
+import Sidebar from '../components/Sidebar';
+import { useMediaQuery } from 'react-responsive';
+import SkeletonHome from '../components/skeletons/SkeletonHome';
 import Pagination from '../components/Pagination';
 
 const reducer = (state, action) => {
@@ -35,22 +35,19 @@ const reducer = (state, action) => {
 };
 
 export default function Home() {
-  const isMobile = useMediaQuery({ maxWidth: 767 }); // lesson 12
+  const isMobile = useMediaQuery({ maxWidth: 767 });
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
   const handleSidebarOpen = () => {
     setIsSidebarOpen(true);
     setTimeout(() => {
       setIsSidebarOpen(false);
-    }, 2000); // Close sidebar 2000 milliseconds (2 second)
+    }, 2000);
   };
-  // By adding the setTimeout callback inside the handleSidebarOpen function,
-  // it will open the sidebar by setting isSidebarOpen to true and then close it by
-  // setting isSidebarOpen back to false after the specified duration.
 
   const navigate = useNavigate();
   const { search } = useLocation();
-  const sp = new URLSearchParams(search); // /search?category = products
+  const sp = new URLSearchParams(search);
   const page = sp.get('page') || 1;
 
   const [{ loading, error, products, pages }, dispatch] = useReducer(reducer, {
@@ -60,7 +57,6 @@ export default function Home() {
 
   useEffect(() => {
     const fetchData = async () => {
-      // Simulate delay for 1.5 seconds
       await new Promise((resolve) => setTimeout(resolve, 1500));
 
       try {
@@ -89,7 +85,6 @@ export default function Home() {
     fetchCategories();
   }, [dispatch]);
 
-  // Pagination
   const getFilterUrl = (filter) => {
     const filterPage = filter.page || page;
     return `/?&page=${filterPage}`;
@@ -128,7 +123,6 @@ export default function Home() {
         <br />
         <Row>
           <Col>
-            {/* react skeleton for product card 1 row of 6 product cards lesson 12 */}
             {loading ? (
               <>
                 <Row>
@@ -155,7 +149,6 @@ export default function Home() {
                 )}
                 <Row>
                   {products.map((product) => (
-                    // 6 columns
                     <Col
                       key={product.slug}
                       sm={6}
@@ -164,7 +157,6 @@ export default function Home() {
                       xl={2}
                       className='mb-3'
                     >
-                      {/* ProductCard comes from components > ProductCard.js */}
                       <ProductCard
                         key={product.id}
                         product={product}
@@ -174,7 +166,6 @@ export default function Home() {
                   ))}
                 </Row>
 
-                {/* Desktop renders sidebar, if mobile do not show sidebar and get toast notifications lesson 12*/}
                 {!isMobile ? (
                   isSidebarOpen && (
                     <div className='sidebar'>
@@ -185,7 +176,6 @@ export default function Home() {
                   <ToastContainer position='bottom-center' />
                 )}
 
-                {/* Pagination Component */}
                 <Pagination
                   currentPage={page}
                   totalPages={pages}

@@ -8,14 +8,25 @@ body {
 
 /* CSS Variables */
 :root {
-  --primary: #ffffff;
-  --bold: #0097b2;
-  --dark: #353b40;
-  --medium: #9a9da0;
-  --light: #ebeded;
-  --facebook: #4968ad;
-  --youtube: #eb3223;
-  --button: #4968ad;
+  /* Colori originali */
+  /* --primary: #ffffff; */
+  /* --bold: #c03c26; */
+  /* --dark: #353b40; */
+  /* --medium: #9a9da0; */
+  /* --light: #ebeded; */
+  /* --facebook: #4968ad; */
+  /* --youtube: #eb3223; */
+  /* --button: #4968ad; */
+
+  /* Nuova palette moderna */
+  --primary: #F5F5F5;     /* Un bianco leggermente più caldo e morbido */
+  --bold: #c03c26;        /* Mantenuto come richiesto */
+  --dark: #2D3047;        /* Blu scuro profondo - più sofisticato */
+  --medium: #9b3c27;      
+  --light: #FAF3DD;       /* Beige chiaro - più caldo dell'originale */
+  --facebook: #4968ad;    /* Mantenuto per coerenza con il brand */
+  --youtube: #eb3223;     /* Mantenuto per coerenza con il brand */
+  --button: #5B85AA;      /* Blu acciaio - professionale ed elegante */
 }
 
 main {
@@ -84,6 +95,7 @@ p,
   padding-left: 5%;
   padding-right: 5%;
 }
+
 /* logo */
 .navbar-brand > img {
   height: 200px;
@@ -91,6 +103,7 @@ p,
   margin-top: -2rem;
   margin-bottom: -2rem;
 }
+
 /* Dropdown */
 .dropdown {
   display: block;
@@ -260,6 +273,13 @@ p,
 .btn-outline-primary {
   background-color: var(--button);
   color: var(--primary);
+}
+
+.btn-primary:hover,
+.btn-outline-primary:hover {
+  background-color: var(--accent-1);
+  color: var(--dark);
+  border-color: var(--medium);
 }
 
 .checkout-steps > div {
@@ -505,11 +525,10 @@ a.email {
 
   /* logo */
   .navbar-brand > img {
-    height: 70px;
-    width: 70px;
-    margin-top: -2rem;
-    margin-bottom: 1-rem;
-    margin-left: -10%; /* moves the logo to the left */
+    height: 120px;
+    width: 120px;
+    margin-top: -1rem;
+    margin-bottom: -1rem;
   }
 
   .nav-categories {
@@ -621,6 +640,30 @@ a.email {
 
   .btn-primary {
     font-size: xx-small;
+  }
+
+  .header {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+  }
+  
+  .d-flex.align-items-center.w-100 {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .d-flex.align-items-center.w-100 > div {
+    margin-left: 0 !important;
+    margin-top: 1rem;
+    width: 100%;
+  }
+  
+  .nav-link {
+    padding: 0.5rem 1rem;
+  }
+  
+  .navbar-nav {
+    margin-top: 1rem;
   }
 }
 

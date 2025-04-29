@@ -6,14 +6,14 @@ const BottomFooter = () => {
     <div className='bottom-footer'>
       <Row>
         <Col className='text-center'>
-          MERN stack app developed by{' '}
+          This Web app is developed by{' '}
           <a
-            href='https://www.gabewd.com/'
+            href='#'
             target='_blank'
             rel='noopener noreferrer'
             id='linked'
           >
-            &copy; gabewd.com
+            &copy; Illmiglia.com
           </a>
         </Col>
       </Row>

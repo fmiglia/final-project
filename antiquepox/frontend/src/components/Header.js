@@ -71,16 +71,19 @@ function Header() {
       <header>
         <Navbar className='header' variant='dark' expand='lg'>
           <ToastContainer position='bottom-center' limit={1} />
-          <LinkContainer to='/'>
-            <Navbar.Brand className='me-auto'>
-              {/* fix logo from breaking by removing . */}
-              <img src='/images/logo1.png' alt='logo'></img>
-            </Navbar.Brand>
-          </LinkContainer>
+          <div className="d-flex align-items-center w-100">
+            <LinkContainer to='/'>
+              <Navbar.Brand>
+                <img src='/images/bottiglia+beige.png' alt='logo' style={{ width: '180px', height: 'auto' }}></img>
+              </Navbar.Brand>
+            </LinkContainer>
+            <div style={{ marginLeft: '40px' }}>
+              <SearchBox />
+            </div>
+          </div>
           <Navbar.Toggle aria-controls='basic-navbar-nav' />
           <Navbar.Collapse id='basic-navbar-nav'>
-            <Nav className='mr-auto  w-100  justify-content-end'>
-              <SearchBox />
+            <Nav className='mr-auto w-100 justify-content-end'>
               <NavDropdown title='About Us' id='basic-nav-dropdown'>
                 <NavDropdown.Item href='/about'>About Us</NavDropdown.Item>
                 <NavDropdown.Item href='/contact'>Contact Us</NavDropdown.Item>
@@ -169,10 +172,10 @@ function Header() {
                 </NavDropdown>
               )}
 
-              <Link to='/cart' className='nav-link'>
-                <i className='fa fa-shopping-cart'></i> Cart
+              <Link to='/cart' className='nav-link d-flex align-items-center'>
+                <i className='fa fa-shopping-cart me-2'></i> Cart
                 {cart.cartItems.length > 0 && (
-                  <Badge pill bg='danger'>
+                  <Badge pill bg='danger' className='ms-2'>
                     {cart.cartItems.reduce((a, c) => a + c.quantity, 0)}
                   </Badge>
                 )}
