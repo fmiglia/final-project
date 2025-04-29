@@ -83,8 +83,8 @@ function Header() {
           </div>
           <Navbar.Toggle aria-controls='basic-navbar-nav' />
           <Navbar.Collapse id='basic-navbar-nav'>
-            <Nav className='mr-auto w-100 justify-content-end'>
-              <NavDropdown title='About Us' id='basic-nav-dropdown'>
+            <Nav className='ms-auto d-flex align-items-center'>
+              <NavDropdown title='About Us' id='basic-nav-dropdown' className='nav-item'>
                 <NavDropdown.Item href='/about'>About Us</NavDropdown.Item>
                 <NavDropdown.Item href='/contact'>Contact Us</NavDropdown.Item>
                 <NavDropdown.Item href='/design'>Design</NavDropdown.Item>
@@ -94,7 +94,7 @@ function Header() {
 
               {/* Categories on mobile */}
               <NavDropdown
-                className='nav-categories' // hides categories in desktop
+                className='nav-categories nav-item'
                 title='Categories'
                 id='basic-nav-dropdown'
               >
@@ -110,7 +110,7 @@ function Header() {
               </NavDropdown>
 
               {userInfo ? (
-                <NavDropdown title={userInfo.name} id='basic-nav-dropdown'>
+                <NavDropdown title={userInfo.name} id='basic-nav-dropdown' className='nav-item'>
                   <LinkContainer to='/profile'>
                     <NavDropdown.Item>User Profile</NavDropdown.Item>
                   </LinkContainer>
@@ -127,13 +127,15 @@ function Header() {
                   </Link>
                 </NavDropdown>
               ) : (
-                <Link className='nav-link' to='/signin'>
-                  <i class='fas fa-sign-in-alt'></i> Sign In
-                </Link>
+                <Nav.Item>
+                  <Link className='nav-link d-flex align-items-center' to='/signin' style={{ whiteSpace: 'nowrap' }}>
+                    <i className='fas fa-sign-in-alt me-2'></i>Sign In
+                  </Link>
+                </Nav.Item>
               )}
 
               {userInfo && userInfo.isAdmin && (
-                <NavDropdown title='Admin' id='admin-nav-dropdown'>
+                <NavDropdown title='Admin' id='admin-nav-dropdown' className='nav-item'>
                   <LinkContainer to='/admin/dashboard'>
                     <NavDropdown.Item>Dashboard</NavDropdown.Item>
                   </LinkContainer>
@@ -143,26 +145,20 @@ function Header() {
                   <LinkContainer to='/admin/users'>
                     <NavDropdown.Item>Users</NavDropdown.Item>
                   </LinkContainer>
-
-                  {/* lesson 11 */}
-                  {/* Orders link with badge */}
                   <LinkContainer to='/admin/orders'>
                     <NavDropdown.Item>
                       Orders{' '}
                       {summaryData && summaryData[0] && (
-                        // if orders is greater than zero then display the success pill
                         <Badge pill bg='success'>
                           {summaryData[0].numOrders}
                         </Badge>
                       )}
                     </NavDropdown.Item>
                   </LinkContainer>
-                  {/* Messages link with badge */}
                   <LinkContainer to='/admin/messages'>
                     <NavDropdown.Item>
                       Messages{' '}
                       {messagesCount > 0 && (
-                        // if messages is greater than zero then display the success pill
                         <Badge pill bg='success'>
                           {messagesCount}
                         </Badge>
@@ -172,14 +168,16 @@ function Header() {
                 </NavDropdown>
               )}
 
-              <Link to='/cart' className='nav-link d-flex align-items-center'>
-                <i className='fa fa-shopping-cart me-2'></i> Cart
-                {cart.cartItems.length > 0 && (
-                  <Badge pill bg='danger' className='ms-2'>
-                    {cart.cartItems.reduce((a, c) => a + c.quantity, 0)}
-                  </Badge>
-                )}
-              </Link>
+              <Nav.Item>
+                <Link to='/cart' className='nav-link d-flex align-items-center'>
+                  <i className='fa fa-shopping-cart me-2'></i> Cart
+                  {cart.cartItems.length > 0 && (
+                    <Badge pill bg='danger' className='ms-2'>
+                      {cart.cartItems.reduce((a, c) => a + c.quantity, 0)}
+                    </Badge>
+                  )}
+                </Link>
+              </Nav.Item>
             </Nav>
           </Navbar.Collapse>
         </Navbar>
