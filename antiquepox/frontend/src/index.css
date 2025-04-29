@@ -701,3 +701,135 @@ a.email {
     margin-right: 0.5rem;
   }
 }
+
+/* Stripe Checkout Form Styles */
+.stripe-form {
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 20px;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.card-element-container {
+  padding: 15px;
+  margin-bottom: 20px;
+  border: 1px solid #e0e0e0;
+  border-radius: 4px;
+  background: #f8f9fa;
+}
+
+.stripe-button {
+  width: 100%;
+  padding: 12px;
+  font-size: 16px;
+  background-color: #5469d4;
+  border: none;
+  border-radius: 4px;
+  color: white;
+  transition: background-color 0.3s ease;
+}
+
+.stripe-button:hover {
+  background-color: #4257b2;
+}
+
+.stripe-button:disabled {
+  background-color: #a0a0a0;
+  cursor: not-allowed;
+}
+
+.result-message {
+  margin-top: 20px;
+  padding: 10px;
+  text-align: center;
+  color: #28a745;
+  background-color: #d4edda;
+  border-radius: 4px;
+}
+
+/* Payment Form Styles */
+.payment-container {
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.payment-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  background: #ffffff;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.payment-card-element {
+  padding: 15px;
+  border: 1px solid #e0e0e0;
+  border-radius: 4px;
+  background: #f8f9fa;
+  min-height: 40px;
+  display: flex;
+  align-items: center;
+}
+
+.payment-button-container {
+  margin-top: 10px;
+}
+
+.payment-button {
+  width: 100%;
+  padding: 12px;
+  font-size: 16px;
+  background-color: #5469d4;
+  border: none;
+  border-radius: 4px;
+  color: white;
+  transition: background-color 0.3s ease;
+}
+
+.payment-button:hover {
+  background-color: #4257b2;
+}
+
+.payment-button:disabled {
+  background-color: #a0a0a0;
+  cursor: not-allowed;
+}
+
+.payment-success-message {
+  margin-top: 20px;
+  padding: 15px;
+  background-color: #d4edda;
+  border-radius: 4px;
+  text-align: center;
+}
+
+.payment-success-message p {
+  margin: 0;
+  color: #28a745;
+}
+
+.payment-success-message a {
+  color: #1e7e34;
+  text-decoration: underline;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .payment-container {
+    padding: 10px;
+  }
+  
+  .payment-form {
+    padding: 20px;
+  }
+  
+  .payment-card-element {
+    padding: 10px;
+  }
+}

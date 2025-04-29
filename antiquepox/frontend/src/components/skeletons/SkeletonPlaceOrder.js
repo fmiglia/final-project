@@ -3,13 +3,12 @@ import { Row, Col } from 'react-bootstrap';
 import Skeleton from './Skeleton';
 
 const SkeletonPlaceOrder = () => {
-  const isMobile = window.innerWidth <= 768; // Set your mobile breakpoint here
+  const isMobile = window.innerWidth <= 768;
 
   return (
     <div>
       {isMobile ? (
         <div className='container small-container'>
-          {/* Mobile view */}
           <Row className='box'>
             <Skeleton classes='title width-100 skeleton-title' />
           </Row>
@@ -45,7 +44,6 @@ const SkeletonPlaceOrder = () => {
           </Row>
         </div>
       ) : (
-        // Desktop view skeleton remains unchanged
         <div className='content'>
           <br />
           <Row className='box'>

@@ -75,6 +75,14 @@ export default function Search() {
   const rating = sp.get('rating') || 'all';
   const order = sp.get('order') || 'newest';
   const page = sp.get('page') || 1;
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+
+  const handleSidebarOpen = () => {
+    setIsSidebarOpen(true);
+    setTimeout(() => {
+      setIsSidebarOpen(false);
+    }, 2000);
+  };
 
   const [{ loading, error, products, pages, countProducts }, dispatch] =
     useReducer(reducer, {
@@ -254,8 +262,11 @@ export default function Search() {
               )}
               <Row>
                 {products.map((product) => (
-                  <Col sm={6} lg={4} className='mb-3' key={product._id}>
-                    <ProductCard product={product}></ProductCard>
+                  <Col key={product.slug} sm={6} md={4} lg={3} className="mb-3">
+                    <ProductCard 
+                      product={product}
+                      handleSidebarOpen={handleSidebarOpen}
+                    />
                   </Col>
                 ))}
               </Row>

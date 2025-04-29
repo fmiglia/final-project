@@ -351,45 +351,30 @@ export default function OrderDetails() {
             <div className='body'>
               <title>Order Summary</title>
               <ListGroup variant='flush'>
-                <ListGroup.Item>
-                  <Row>
-                    <Col>Quantity</Col>
-                    <Col>
-                      {/* Calculate and display the total quantity of all items */}
-                      {order.orderItems.reduce(
-                        (acc, item) => acc + item.quantity,
-                        0
-                      )}
-                    </Col>
-                  </Row>
+                <ListGroup.Item className="d-flex justify-content-between align-items-center">
+                  <span>Quantity</span>
+                  <span>
+                    {order.orderItems.reduce(
+                      (acc, item) => acc + item.quantity,
+                      0
+                    )}
+                  </span>
                 </ListGroup.Item>
-                <ListGroup.Item>
-                  <Row>
-                    <Col>Order Price</Col>
-                    <Col>${order.itemsPrice.toFixed(2)}</Col>
-                  </Row>
+                <ListGroup.Item className="d-flex justify-content-between align-items-center">
+                  <span>Order Price</span>
+                  <span>${order.itemsPrice.toFixed(2)}</span>
                 </ListGroup.Item>
-                <ListGroup.Item>
-                  <Row>
-                    <Col>Shipping</Col>
-                    <Col>${order.shippingPrice.toFixed(2)}</Col>
-                  </Row>
+                <ListGroup.Item className="d-flex justify-content-between align-items-center">
+                  <span>Shipping</span>
+                  <span>${order.shippingPrice.toFixed(2)}</span>
                 </ListGroup.Item>
-                <ListGroup.Item>
-                  <Row>
-                    <Col>Tax</Col>
-                    <Col>${order.taxPrice.toFixed(2)}</Col>
-                  </Row>
+                <ListGroup.Item className="d-flex justify-content-between align-items-center">
+                  <span>Tax</span>
+                  <span>${order.taxPrice.toFixed(2)}</span>
                 </ListGroup.Item>
-                <ListGroup.Item>
-                  <Row>
-                    <Col>
-                      <strong>Order Total</strong>
-                    </Col>
-                    <Col>
-                      <strong>${order.totalPrice.toFixed(2)}</strong>
-                    </Col>
-                  </Row>
+                <ListGroup.Item className="d-flex justify-content-between align-items-center">
+                  <strong>Order Total</strong>
+                  <strong>${order.totalPrice.toFixed(2)}</strong>
                 </ListGroup.Item>
 
                 {!order.isPaid && (

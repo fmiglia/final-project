@@ -2,10 +2,12 @@ import React, { useState, useContext } from 'react';
 import {
   useStripe,
   useElements,
-  CardElement,
+  CardNumberElement,
+  CardExpiryElement,
+  CardCvcElement,
   Elements,
 } from '@stripe/react-stripe-js';
-import { Button } from 'react-bootstrap';
+import { Button, Form, Container, Row, Col } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import Axios from 'axios';
 import { Store } from '../Store';
@@ -42,7 +44,7 @@ const CheckoutForm = (props) => {
 
     const result = await stripe.confirmCardPayment(clientSecret, {
       payment_method: {
-        card: elements.getElement(CardElement),
+        card: elements.getElement(CardNumberElement),
         billing_details: {
           name: data.order.user.name,
           email: data.order.user.email,
@@ -64,28 +66,80 @@ const CheckoutForm = (props) => {
     setProcessing(false);
   };
 
+  const cardElementStyle = {
+    base: {
+      fontSize: '16px',
+      color: '#424770',
+      '::placeholder': {
+        color: '#aab7c4',
+      },
+      lineHeight: '40px',
+    },
+    invalid: {
+      color: '#9e2146',
+    },
+  };
+
   return (
-    <form onSubmit={handleSubmit}>
-      <CardElement /> {/* Stripe CardElement for credit card input */}
-      <Button
-        type='submit'
-        className='btn-block'
-        disabled={!stripe || processing || succeeded}
-      >
-        Pay With Credit Card
-      </Button>
-      <br />
-      {displaySuccessMessage && (
-        <p className='result-message'>
-          Payment Successful.{' '}
-          <Link to='/orderhistory'>See it in your purchase history.</Link>
-        </p>
-      )}
-    </form>
+    <Container>
+      <Form onSubmit={handleSubmit} className="payment-form">
+        <Row className="mb-4">
+          <Col>
+            <Form.Group>
+              <Form.Label className="payment-label">Numero Carta</Form.Label>
+              <div className="payment-input">
+                <CardNumberElement options={{ style: cardElementStyle }} />
+              </div>
+            </Form.Group>
+          </Col>
+        </Row>
+
+        <Row className="mb-4">
+          <Col md={6}>
+            <Form.Group>
+              <Form.Label className="payment-label">Data di Scadenza</Form.Label>
+              <div className="payment-input">
+                <CardExpiryElement options={{ style: cardElementStyle }} />
+              </div>
+            </Form.Group>
+          </Col>
+          <Col md={6}>
+            <Form.Group>
+              <Form.Label className="payment-label">CVV</Form.Label>
+              <div className="payment-input">
+                <CardCvcElement options={{ style: cardElementStyle }} />
+              </div>
+            </Form.Group>
+          </Col>
+        </Row>
+
+        <Row>
+          <Col>
+            <Button
+              type='submit'
+              className='payment-button'
+              disabled={!stripe || processing || succeeded}
+            >
+              {processing ? 'Processing...' : 'Pay With Credit Card'}
+            </Button>
+          </Col>
+        </Row>
+
+        {displaySuccessMessage && (
+          <Row className="mt-4">
+            <Col>
+              <div className="payment-success-message">
+                Payment Successful.{' '}
+                <Link to='/orderhistory'>See it in your purchase history.</Link>
+              </div>
+            </Col>
+          </Row>
+        )}
+      </Form>
+    </Container>
   );
 };
 
-// Wrapper component for Stripe Elements
 const StripeCheckout = (props) => (
   <Elements stripe={props.stripe}>
     <CheckoutForm

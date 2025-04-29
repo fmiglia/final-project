@@ -172,45 +172,30 @@ export default function PlaceOrder() {
                 <Card.Body>
                   <Card.Title>Order Summary</Card.Title>
                   <ListGroup variant='flush'>
-                    <ListGroup.Item>
-                      <Row>
-                        <Col>Quantity</Col>
-                        <Col>
-                          {/* Calculate and display the total quantity of all items */}
-                          {cart.cartItems.reduce(
-                            (acc, item) => acc + item.quantity,
-                            0
-                          )}
-                        </Col>
-                      </Row>
+                    <ListGroup.Item className="d-flex justify-content-between align-items-center">
+                      <span>Quantity</span>
+                      <span>
+                        {cart.cartItems.reduce(
+                          (acc, item) => acc + item.quantity,
+                          0
+                        )}
+                      </span>
                     </ListGroup.Item>
-                    <ListGroup.Item>
-                      <Row>
-                        <Col>Items</Col>
-                        <Col>${cart.itemsPrice.toFixed(2)}</Col>
-                      </Row>
+                    <ListGroup.Item className="d-flex justify-content-between align-items-center">
+                      <span>Items</span>
+                      <span>${cart.itemsPrice.toFixed(2)}</span>
                     </ListGroup.Item>
-                    <ListGroup.Item>
-                      <Row>
-                        <Col>Shipping</Col>
-                        <Col>${cart.shippingPrice.toFixed(2)}</Col>
-                      </Row>
+                    <ListGroup.Item className="d-flex justify-content-between align-items-center">
+                      <span>Shipping</span>
+                      <span>${cart.shippingPrice.toFixed(2)}</span>
                     </ListGroup.Item>
-                    <ListGroup.Item>
-                      <Row>
-                        <Col>Tax</Col>
-                        <Col>${cart.taxPrice.toFixed(2)}</Col>
-                      </Row>
+                    <ListGroup.Item className="d-flex justify-content-between align-items-center">
+                      <span>Tax</span>
+                      <span>${cart.taxPrice.toFixed(2)}</span>
                     </ListGroup.Item>
-                    <ListGroup.Item>
-                      <Row>
-                        <Col>
-                          <strong> Order Total</strong>
-                        </Col>
-                        <Col>
-                          <strong>${cart.totalPrice.toFixed(2)}</strong>
-                        </Col>
-                      </Row>
+                    <ListGroup.Item className="d-flex justify-content-between align-items-center">
+                      <strong>Order Total</strong>
+                      <strong>${cart.totalPrice.toFixed(2)}</strong>
                     </ListGroup.Item>
 
                     <ListGroup.Item>
