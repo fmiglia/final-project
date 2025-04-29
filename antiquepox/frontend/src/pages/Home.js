@@ -147,15 +147,15 @@ export default function Home() {
                 {products.length === 0 && (
                   <MessageBox>No Product Found</MessageBox>
                 )}
-                <Row>
+                <Row className="g-4">
                   {products.map((product) => (
                     <Col
                       key={product.slug}
+                      xs={12}
                       sm={6}
                       md={4}
-                      lg={2}
-                      xl={2}
-                      className='mb-3'
+                      lg={3}
+                      xl={3}
                     >
                       <ProductCard
                         key={product.id}

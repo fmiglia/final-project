@@ -10,6 +10,7 @@ export default function SearchBox() {
   const submitHandler = (e) => {
     e.preventDefault(); // Preventing default form submission behavior
     navigate(query ? `/search/?query=${query}` : '/search'); // Navigating to search page with query parameter if query exists
+    setQuery(''); // Resetting the search query after navigation
   };
 
   return (
