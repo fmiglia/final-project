@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "build": "cd antiquepox/backend && npm install && cd ../frontend && npm install --force && CI=false npm run build",
+    "build": "cd antiquepox/backend && npm install && cd ../frontend && npm install --force && CI=false npm run build && mkdir -p /opt/render/project/src/frontend/build && cp -r build/* /opt/render/project/src/frontend/build/",
     "start": "node antiquepox/backend/server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
