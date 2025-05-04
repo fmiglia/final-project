@@ -11,25 +11,25 @@ const Footer = () => {
           <div className='socialIcon'>
             <ul className='list-unstyled'>
               <li>
-                <Link
-                  to='https://www.facebook.com/'
+                <a
+                  href='https://www.facebook.com/'
                   className='facebookIcon'
                   target='_blank'
                   rel='noopener noreferrer'
                 >
                   <i className='fab fa-facebook'></i> Facebook
-                </Link>
+                </a>
               </li>
 
               <li>
-                <Link
-                  to='https://www.youtube.com/channel/'
+                <a
+                  href='https://www.youtube.com/channel/'
                   className='youtubeIcon'
                   target='_blank'
                   rel='noopener noreferrer'
                 >
                   <i className='fab fa-youtube'></i> YouTube
-                </Link>
+                </a>
               </li>
             </ul>
           </div>
